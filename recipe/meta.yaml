@@ -1,0 +1,43 @@
+{% set name = "11-id-chx-analysis" %}
+{% set year = "2019" %}
+{% set cycle = "3" %}
+{% set version = "0" %}
+
+package:
+  name: {{ name }}
+  version: {{ year }}C{{ cycle }}.{{ version }}
+
+build:
+  skip: True  # [py<36]
+  number: 0
+
+requirements:
+  host:
+    - python
+  run:
+    - python
+    - boto3
+    - chxtools
+    - graphviz
+    - line_profiler
+    - memory_profiler
+    - modestimage
+    - papermill
+
+test:
+  imports:
+    - boto3
+    - chxtools
+    - line_profiler
+    - memory_profiler
+    - modest_image
+    - papermill
+
+about:
+  home: https://nsls-ii.github.io/deployment_docs.html
+  license: BSD 3-Clause
+  license_file: LICENSE
+  summary: NSLS-II CHX analysis metapackage with extra-packages
+  description: |
+    NSLS-II CHX analysis metapackage with extra-packages. See the deployment
+    documentation at https://nsls-ii.github.io/deployment_docs.html
